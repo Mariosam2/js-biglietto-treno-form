@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/main.js" defer></script>
@@ -14,7 +17,8 @@
     <main id="site_main">
         <div class="container">
             <section class="ticketPriceCalc">
-                <h2 class="title text-uppercase"><img src="./assets/img/logo.png" alt="" id="logo"> CALCOLA IL PREZZO DEL TUO BIGLIETTO</h2>
+                <h2 class="title text-uppercase"><img src="./assets/img/logo.png" alt="" id="logo"> CALCOLA IL PREZZO
+                    DEL TUO BIGLIETTO</h2>
                 <div class="row">
                     <form action="./index.html" method="get" class="d-flex col-10" id="ticketForm">
                         <div class="userData">
@@ -36,21 +40,40 @@
                             </select>
                         </div>
                         <div class=" submit grow-1">
-                            <input type="submit" value="Genera">
-                            <input type="submit" value="Annulla">
+                            <input type="submit" value="Genera" id="generate">
+                            <input type="submit" value="Annulla" id="cancel">
                         </div>
-                        
-
                     </form>
-
                 </div>
-
             </section>
-            <section class="ticket">
+            <section class="ticket_info">
                 <h2 class="title text-uppercase">Il tuo biglietto</h2>
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col-10 p-2 text-primary">
                         <h3 class="text-uppercase">DETTAGLIO PASSEGGERI</h3>
+                        <div class="ticket d-flex">
+                            <div class="passengerName">
+                                <h3 class="text-uppercase">Nome Passeggero:</h3>
+                                <span id="name">Pippo</span>
+                                <span id="surname">Pluto</span>
+                            </div>
+                            <div class="box">
+                                <span class="subtitle">Offerta</span>
+                                <span>Sconto:<br><span id="discount">Minorenne</span></span>
+                            </div>
+                            <div class="box">
+                                <span class="subtitle">Carrozza</span>
+                                <span>7</span>
+                            </div>
+                            <div class="box">
+                                <span class="subtitle">Codice CP</span>
+                                <span>97928</span>
+                            </div>
+                            <div class="box">
+                                <span class="subtitle">Costo biglietto</span>
+                                <span>3.36&euro;</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
