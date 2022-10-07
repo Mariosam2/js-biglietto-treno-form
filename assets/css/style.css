@@ -180,8 +180,6 @@ select {
 input.error {
     border-color: red;
 }
-.error .errorMsg::after {
-    color: red;
-}
+
 
 /* #endregion */

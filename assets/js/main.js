@@ -4,9 +4,8 @@ const cancel = document.getElementById("cancel");
 const userName = document.getElementById("name");
 const surname = document.getElementById("surname");
 const ageGroup = document.getElementById("ageGroup");
-const cpCode = document.getElementById("CP");
 const price = document.getElementById("price");
-let discount = 0;
+let discount = 20;
 reset();
 // calculation for the price
 function getPrice(value) {
@@ -19,6 +18,30 @@ function getPrice(value) {
     price = price.toFixed(2);
     return price.toString();
 }
+function getAgeGroup (value){
+    let innerText;
+    if (value == "underAge") {
+        discount = 20;
+        innerText = "Minorenne"
+        return innerText;
+        
+        
+    } else if (value == "overAge") {
+        discount = 40
+        innerText = "Over 65"
+        return innerText;
+        
+        
+    }  else {
+        discount = 0;
+        innerText = "Nessuno Sconto"
+        return innerText;
+        
+
+    }
+}
+
+
 // resetting the state of the page as default
 function reset () {
     for (let [key, value] of Object.entries(inputs)){
@@ -37,11 +60,21 @@ function reset () {
 
 // Saving input values
 inputs["userName"].addEventListener("input", ()=>{
+    if(!inputs["userName"].value.match(/^[A-Z]+$/gi)){
+        inputs["userName"].classList.add("error")
+    } else {
+        inputs["userName"].classList.remove("error")
+    }
     userName.innerHTML = inputs["userName"].value;
 })
 
 
 inputs["userSurname"].addEventListener("input", ()=>{
+    if(!inputs["userSurname"].value.match(/^[A-Z]+$/gi)){
+        inputs["userSurname"].classList.add("error")
+    } else {
+        inputs["userSurname"].classList.remove("error")
+    }
     surname.innerHTML = inputs["userSurname"].value;
 })
 
@@ -52,54 +85,33 @@ inputs["distance"].addEventListener("input", ()=> {
     } else {
         inputs["distance"].classList.remove("error");
     }
-       
-    if (inputs["userAge"].value == "underAge") {
-        discount = 20;
-        
-    } else if (inputs["userAge"].value == "overAge") {
-        discount = 40;
-        
-    }  else {
-        discount = 0;
-
-    }
-    price.innerHTML = getPrice(inputs["distance"].value) + "&euro;"
     
-    
+    price.innerHTML = getPrice(inputs["distance"].value) + "&euro;"  
 })
 
 inputs["userAge"].addEventListener("input", ()=>{
-    console.log(inputs["userAge"].value);
-    if (inputs["userAge"].value == "underAge") {
-        ageGroup.innerHTML = "Minorenne"
-        discount = 20;
-        
-    } else if (inputs["userAge"].value == "overAge") {
-        ageGroup.innerHTML = "Over 65"
-        discount = 40
-        
-    }  else {
-        ageGroup.innerHTML = "Nessuno sconto"
-        discount = 0;
-
-    }
+    ageGroup.innerHTML =  getAgeGroup(inputs["userAge"].value);
     price.innerHTML = getPrice(inputs["distance"].value) + "&euro;"
 })
 
 cancel.addEventListener("click", ()=>{
     reset();
     
-
 })
 
 // Form validation
-
-
 form.addEventListener("submit", (event) => {
     if(!Number(inputs["distance"].value)) {
         event.preventDefault();
         
     }
+    if (!(inputs["userName"].value.match(/^[A-Z]+$/gi) && inputs["userSurname"].value.match(/^[A-Z]+$/gi))){
+        event.preventDefault()
+    }
+    localStorage.setItem("userName", inputs["userName"].value);
+    localStorage.setItem("userSurname", inputs["userSurname"].value);
+    localStorage.setItem("ageGroup", getAgeGroup(inputs["userAge"].value));
+    localStorage.setItem("price", getPrice(inputs["distance"].value));
     
 });
 
