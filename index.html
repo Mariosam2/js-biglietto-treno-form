@@ -20,12 +20,12 @@
                 <h2 class="title text-uppercase"><img src="./assets/img/logo.png" alt="" id="logo"> CALCOLA IL PREZZO
                     DEL TUO BIGLIETTO</h2>
                 <div class="row">
-                    <form action="./ticket.html" method="get" class="d-flex col-10" id="ticketForm">
+                    <form action="./ticket.html" method="get" class="d-flex col-10 col-xl-12" id="ticketForm">
                         <div class="userData">
                             <label for="userName">Nome</label>
-                            <input type="text" name="userName" id="userName" placeholder="es: Pippo">
+                            <input type="text" name="userName" id="userName" placeholder="es: Pippo" maxlength="20">
                             <label for="userSurname">Cognome</label>
-                            <input type="text" name="userSurname" id="userSurname" placeholder="es: Pluto">
+                            <input type="text" name="userSurname" id="userSurname" placeholder="es: Pluto" maxlength="20">
                         </div>
                         <div class="userData">
                             <label for="distance">Km da percorrere</label>
@@ -49,10 +49,10 @@
             <section class="ticket_info">
                 <h2 class="title text-uppercase">Anteprima biglietto</h2>
                 <div class="row">
-                    <div class="col-10 p-2 text-primary">
+                    <div class="col-10 col-xl-12 p-2 text-primary">
                         <h3 class="text-uppercase">DETTAGLIO PASSEGGERI</h3>
                         <div class="ticket d-flex">
-                            <div class="passengerName">
+                            <div class="passengerName d-xs-none">
                                 <h3 class="text-uppercase">Nome Passeggero:</h3>
                                 <span id="name"></span>
                                 <span id="surname"></span>
