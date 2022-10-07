@@ -15,6 +15,7 @@ function reset (){
     })
     userName.innerHTML = "";
     price.innerHTML = "";
+    ageGroup.innerHTML = "";
     userAge.value = userAge[0].value;
 }
 
