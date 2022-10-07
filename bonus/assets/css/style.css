@@ -149,6 +149,10 @@ select {
     font-size: 1rem;
 }
 
+#generate:hover, #cancel:hover {
+    cursor: pointer;
+}
+
 .ticket {
     height: 200px;
     border-top: 1px solid;
