@@ -20,10 +20,12 @@
                 <h2 class="title text-uppercase"><img src="./assets/img/logo.png" alt="" id="logo"> CALCOLA IL PREZZO
                     DEL TUO BIGLIETTO</h2>
                 <div class="row">
-                    <div class="d-flex col-10 col-xl-12" id="ticketForm">
+                    <form action="./ticket.html" method="get" class="d-flex col-10 col-xl-12" id="ticketForm">
                         <div class="userData">
-                            <label for="userName">Nome Cognome</label>
+                            <label for="userName">Nome</label>
                             <input type="text" name="userName" id="userName" placeholder="es: Pippo" maxlength="20">
+                            <label for="userSurname">Cognome</label>
+                            <input type="text" name="userSurname" id="userSurname" placeholder="es: Pluto" maxlength="20">
                         </div>
                         <div class="userData">
                             <label for="distance">Km da percorrere</label>
@@ -38,10 +40,10 @@
                             </select>
                         </div>
                         <div class=" submit grow-1">
-                            <div id="generate">Genera</div>
+                            <input type="submit" value="Genera" id="generate">
                             <div id="cancel">Annulla</div>
                         </div>
-                    </div>
+                    </form>
                     
                 </div>
             </section>
@@ -54,6 +56,7 @@
                             <div class="passengerName d-xs-none">
                                 <h3 class="text-uppercase">Nome Passeggero:</h3>
                                 <span id="name"></span>
+                                <span id="surname"></span>
                             </div>
                             <div class="box">
                                 <span class="subtitle">Offerta</span>
