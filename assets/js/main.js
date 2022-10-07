@@ -9,13 +9,13 @@ let discount = 20;
 
 function reset (){
     inputs.forEach((input)=> {
-        if (input.id == "userName" || input.id == "distance") {
+        if (input.type == "text") {
             input.value = "";
         }
     })
     userName.innerHTML = "";
     price.innerHTML = "";
-    userAge.innerHTML = "";
+    userAge.value = userAge[0].value;
 }
 
 function setDiscount(value){
