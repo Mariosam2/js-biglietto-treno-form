@@ -1,5 +1,125 @@
+:root {
+    --bool-green: #6ed663;
+    --bool-blue: #021733;
+}
+
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+body {
+    background-color: var(--bool-blue);
+}
+
+.container {
+    width: 80%;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.title {
+    color: white;
+    text-align: center;
+
+}
+
+/* #region Utilities */
+.d-flex {
+    display: flex;
+}
+
+.grow-1 {
+    flex-grow: 1;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.my-2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+/* #endregion */
+
+
+/* #region columns */
+[class*="col-"] {
+    background-color: white;
+}
+.col-10 {
+    width: calc((100%/12)*10);
+}
+/* #endregion */
+
+
+/* #region main */
+#site_main {
+    padding: 2rem;
+}
+
+#logo {
+    vertical-align: middle;
+    margin: 0 0.5rem;
+    
+}
+
+#ticketForm {
+    color: var(--bool-green);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 2rem auto;
+    border-radius: 1rem;
+}
+
+#ticketForm > *:not(.submit) {
+    display: flex;
+    flex-direction: column;
+    width: calc(100%/3);
+    padding: 0 2rem;
+    
+    
+}
+
+.userData > * {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.userData input, .userData select {
+    max-width: 80%;
+    margin: 0 auto;
+    border-radius: 0.3rem;
+}
+
+.userData input[type="text"]{
+    padding: 0.1rem 0;
+    color: var(--bool-blue);
+    border-color: var(--bool-blue);
+    border-style: solid;
+}
+
+select {
+    padding-right: 1rem;
+}
+
+.submit {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.submit >* {
+    width: 8%;
+    padding: 0.5rem;
+    margin: 0 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--bool-blue);
+    color: white;
+}
+
+/* #endregion */
