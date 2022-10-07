@@ -9,7 +9,7 @@ let discount = 20;
 
 function reset (){
     inputs.forEach((input)=> {
-        if (input.type == "text") {
+        if (input.id == "userName" || input.id == "distance") {
             input.value = "";
         }
     })
