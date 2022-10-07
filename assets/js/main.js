@@ -1,20 +1,41 @@
+const form = document.getElementById("ticketForm");
 const inputs = document.getElementById("ticketForm").elements;
+const cancel = document.getElementById("cancel");
 const userName = document.getElementById("name");
 const surname = document.getElementById("surname");
 const ageGroup = document.getElementById("ageGroup");
 const cpCode = document.getElementById("CP");
 const price = document.getElementById("price");
 let discount = 0;
-
+reset();
+// calculation for the price
 function getPrice(value) {
     let price = value * 0.21;
     let discountedPrice = (price/100)* discount;
     price = price - discountedPrice;
+    if(!Number(price)){
+        price = 0;
+    }
     price = price.toFixed(2);
     return price.toString();
 }
+// resetting the state of the page as default
+function reset () {
+    for (let [key, value] of Object.entries(inputs)){
+        if(value.type == "text"){
+            value.value = "";
+        } if (value.type == "select-one"){
+            value.value = value[0].value;
+        }
+        
+    }
+    userName.innerHTML = "";
+    surname.innerHTML = "";
+    ageGroup.innerHTML = "Minorenne"
+    price.innerHTML = "0.00&euro;";
+}
 
-
+// Saving input values
 inputs["userName"].addEventListener("input", ()=>{
     userName.innerHTML = inputs["userName"].value;
 })
@@ -25,6 +46,13 @@ inputs["userSurname"].addEventListener("input", ()=>{
 })
 
 inputs["distance"].addEventListener("input", ()=> {
+    if(!Number(inputs["distance"].value)){
+        inputs["distance"].classList.add("error");
+        
+    } else {
+        inputs["distance"].classList.remove("error");
+    }
+       
     if (inputs["userAge"].value == "underAge") {
         discount = 20;
         
@@ -58,24 +86,21 @@ inputs["userAge"].addEventListener("input", ()=>{
     price.innerHTML = getPrice(inputs["distance"].value) + "&euro;"
 })
 
+cancel.addEventListener("click", ()=>{
+    reset();
+    
 
-
-inputs.addEventListener("submit", ()=> {
-    inputs.foreach((input)=>{
-        input.value = "";
-    })
-    return false;
 })
 
+// Form validation
 
 
-
-/* inputs["generate"].addEventListener("click", () => {
+form.addEventListener("submit", (event) => {
+    if(!Number(inputs["distance"].value)) {
+        event.preventDefault();
+        
+    }
     
-      inputs["userName"].value;
-    
-})
- */
-
+});
 
 
