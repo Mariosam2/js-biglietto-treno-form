@@ -16,38 +16,8 @@
 <body>
     <main id="site_main">
         <div class="container">
-            <section class="ticketPriceCalc">
-                <h2 class="title text-uppercase"><img src="./assets/img/logo.png" alt="" id="logo"> CALCOLA IL PREZZO
-                    DEL TUO BIGLIETTO</h2>
-                <div class="row">
-                    <form action="ticket.html" method="post" class="d-flex col-10" id="ticketForm">
-                        <div class="userData">
-                            <label for="userName">Nome</label>
-                            <input type="text" name="userName" id="userName" placeholder="es: Pippo">
-                            <label for="userSurname">Cognome</label>
-                            <input type="text" name="userSurname" id="userSurname" placeholder="es: Pluto">
-                        </div>
-                        <div class="userData">
-                            <label for="distance">Km da percorrere</label>
-                            <input type="text" name="distance" id="distance" placeholder="es: 20">
-                        </div>
-                        <div class="userData">
-                            <label for="userAge">Fascia d'età</label>
-                            <select name="userAge" id="userAge">
-                                <option value="underAge">Minorenne</option>
-                                <option value="adult">Maggiorenne</option>
-                                <option value="overAge">Over 65</option>
-                            </select>
-                        </div>
-                        <div class=" submit grow-1">
-                            <input type="submit" value="Genera" id="generate">
-                            <input type="submit" value="Annulla" id="cancel">
-                        </div>
-                    </form>
-                </div>
-            </section>
             <section class="ticket_info">
-                <h2 class="title text-uppercase">Anteprima biglietto</h2>
+                <h2 class="title text-uppercase">Il tuo biglietto</h2>
                 <div class="row">
                     <div class="col-10 p-2 text-primary">
                         <h3 class="text-uppercase">DETTAGLIO PASSEGGERI</h3>
@@ -59,7 +29,7 @@
                             </div>
                             <div class="box">
                                 <span class="subtitle">Offerta</span>
-                                <span>Sconto:<br><span id="ageGroup">Minorenne</span></span>
+                                <span>Sconto:<br><span id="discount">Minorenne</span></span>
                             </div>
                             <div class="box">
                                 <span class="subtitle">Carrozza</span>
