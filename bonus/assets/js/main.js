@@ -100,10 +100,9 @@ inputs["userAge"].addEventListener("input", ()=>{
     price.innerHTML = getPrice(inputs["distance"].value) + "&euro;"
 })
 
-cancel.addEventListener("click", ()=>{
+form.addEventListener("reset", () => {
     reset();
-    
-})
+});
 
 // Form validation
 form.addEventListener("submit", (event) => {
