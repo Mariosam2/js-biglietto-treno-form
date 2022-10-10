@@ -4,9 +4,15 @@ const cancel = document.getElementById("cancel");
 const userName = document.getElementById("name");
 const surname = document.getElementById("surname");
 const ageGroup = document.getElementById("ageGroup");
+const wagonNumber = document.getElementById('cabin');
+const cpCode = document.getElementById('CP');
 const price = document.getElementById("price");
 let discount = 20;
 reset();
+let innerWagonNumber = Math.floor(Math.random()*10) + 1;
+let innerCpCode = Math.floor(Math.random()*99000);
+wagonNumber.innerHTML = innerWagonNumber;
+cpCode.innerHTML = innerCpCode;
 // calculation for the price
 function getPrice(value) {
     let price = value * 0.21;
@@ -112,6 +118,9 @@ form.addEventListener("submit", (event) => {
     localStorage.setItem("userSurname", inputs["userSurname"].value);
     localStorage.setItem("ageGroup", getAgeGroup(inputs["userAge"].value));
     localStorage.setItem("price", getPrice(inputs["distance"].value));
+    localStorage.setItem("wagonNumber", innerWagonNumber);
+    localStorage.setItem("cpCode", innerCpCode);
+
     
 });
 

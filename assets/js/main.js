@@ -4,6 +4,8 @@ const cancel = document.getElementById('cancel');
 const userAge = document.getElementById('userAge');
 const userName = document.getElementById('name');
 const ageGroup = document.getElementById('ageGroup');
+const wagonNumber = document.getElementById('cabin');
+const cpCode = document.getElementById('CP');
 const price = document.getElementById('price');
 let discount = 20;
 
@@ -58,27 +60,28 @@ function getAgeGroup (value){
 function getPrice(value) {
     let price = value * 0.21;
     let discountedPrice = (price/100)* discount;
-    price = price - discountedPrice;
-    price = price.toFixed(2);
-    return price.toString();
+    price = (price - discountedPrice).toFixed(2);
+    return price;
 }
 
 
 
 
-button.addEventListener('click',()=>{
+button.addEventListener('click',(e)=>{
+    console.log(e);
     setDiscount(userAge.value);
     inputs.forEach((input)=>{
         if(input.id == "userAge"){
-            console.log(input.value);
             ageGroup.innerHTML = getAgeGroup(input.value);
         }
         if(input.id == "userName"){
-        userName.innerHTML = input.value;
+            userName.innerHTML = input.value;
         }
         if(input.id == "distance"){
-            price.innerHTML = getPrice(input.value);
+            price.innerHTML = getPrice(input.value) + "&euro;";
         }
+        cabin.innerHTML = Math.floor(Math.random()*10) + 1;
+        cpCode.innerHTML = Math.floor(Math.random()*99000);
     })
 
 })
