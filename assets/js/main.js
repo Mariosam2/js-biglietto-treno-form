@@ -18,6 +18,8 @@ function reset (){
     userName.innerHTML = "";
     price.innerHTML = "";
     ageGroup.innerHTML = "";
+    wagonNumber.innerHTML = "";
+    cpCode.innerHTML = "";
     userAge.value = userAge[0].value;
 }
 

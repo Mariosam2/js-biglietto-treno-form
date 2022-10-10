@@ -61,6 +61,8 @@ function reset () {
     userName.innerHTML = "";
     surname.innerHTML = "";
     ageGroup.innerHTML = "Minorenne"
+    wagonNumber.innerHTML = "";
+    cpCode.innerHTML = "";
     price.innerHTML = "0.00&euro;";
 }
 
